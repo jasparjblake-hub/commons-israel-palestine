@@ -299,13 +299,13 @@
     muslim_pc: ["Muslim population share", "%"], jewish_pc: ["Jewish population share", "%"],
     ethnic_minority_pc: ["Ethnic minority share", "%"], degree_pc: ["Degree-level share (16+)", "%"],
     young_adult_pc: ["Adults aged 18–34", "%"], child_poverty_pc: ["Child poverty, after housing costs", "%"],
-    majority_pc: ["2024 majority", " pts"],
+    majority_pc: ["2024 majority", "%"],
   };
   const OUTCOMES = {
     claims: "Claim 1 and Claim 2 in speeches",
     rec: "Called for recognition before the UK recognised Palestine",
     arms: "Called for arms restrictions",
-    edm_rec: "Signed a motion calling for recognition",
+    edm_rec: "Signed a motion calling for recognition (tabled before 1 Sep 2025)",
     edm_arms: "Signed a motion calling for arms restrictions",
     on: "Number of on-topic contributions",
   };
@@ -337,8 +337,9 @@
       } else {
         pts = mps.filter(m => m.gss && m.p24.on >= SE.minOn).map(m => {
           const s = seats.find(x => x.gss === m.gss);
-          const recCalled = m.asks24.rec.first_call && m.asks24.rec.first_call < "2025-09-01" && (!SE.useHand || m.after_hand_check.rec_called);
-          const armsCalled = m.asks24.arms.called > 0 && (!SE.useHand || m.after_hand_check.arms_called);
+          const R = SE.useHand ? m.asks24_hc.rec : m.asks24.rec, Ar = SE.useHand ? m.asks24_hc.arms : m.asks24.arms;
+          const recCalled = R.first_call && R.first_call < "2025-09-01";
+          const armsCalled = Ar.called > 0;
           return { s, id: m.id, name: m.name, party: m.party_2024 || m.party, role: m.main_role_2024, m,
             y: SE.out === "rec" ? !!recCalled : SE.out === "arms" ? armsCalled : null };
         });

@@ -59,14 +59,14 @@
       el("p", { class: "small" }, el("a", { href: "#seats" }, "Explore seats"), " · ", el("a", { href: "#method" }, "Every check on this result"))),
 
     panel(el("h2", null, "3. Government roles shape what is recorded"), el("div", null, EXPL()),
-      p("Since July 2024, Labour MPs speaking as ministers made Claim 1 in 63% of their on-topic contributions and Claim 2 in 22%. Labour backbenchers made them in 85% and 17%. After a hand check of every case, none of the 18 Labour ministers in the main group is recorded calling for arms restrictions or recognition. The few calls the model had recorded for them were statements of Government policy."),
+      p("Since July 2024, Labour MPs speaking as ministers made Claim 1 in 63% of their on-topic contributions and Claim 2 in 22%. Labour backbenchers made them in 84% and 18%. After a hand check of every case, none of the 18 Labour ministers in the main group is recorded calling for arms restrictions or recognition. The few calls the model had recorded for them were statements of Government policy."),
       p("The same pattern held under the previous Government. Conservative ministers before July 2024 made Claim 1 in 43% of contributions and Claim 2 in 39%. In both periods, ministers' Claim 1 share sat between that of their own backbenchers and that of the opposition frontbench. Ministers and whips also do not sign Early Day Motions."),
       el("p", { class: "small" }, el("a", { href: "#parties" }, "See claims by party and role"))),
 
     panel(el("h2", null, "4. The record shifted at particular moments"), el("div", null, EXPL()),
       p("Across the whole House, the share of on-topic contributions making Claim 2 fell from 45% in the months after 7 October 2023 to 20% after September 2025. The share making Claim 1 rose from 55% to 71%. In October 2023 itself, Claim 2 was made more often than Claim 1."),
       p("The same 60 MPs, compared before and after the 2024 election, made Claim 2 less often by a median of 15 points, about as much as the House as a whole. Their Claim 1 share did not change; most were already making it in nearly every contribution. The House's rise in Claim 1 came mainly from changes in who sat and who spoke."),
-      p("First calls for recognition came in bursts. Three sitting days, 29 April, 6 May and 10 June 2025, account for 40% of them. On 10 June a minister made a statement announcing UK sanctions on two Israeli ministers over settler violence, and 14 MPs made their first recorded call for recognition that day, many pointing to an international conference due the following week. A motion calling for recognition was tabled two days later. First calls for arms restrictions were spread more evenly."),
+      p("First calls for recognition came in bursts. Among the 163 MPs who spoke on the subject at least five times after July 2024, three sitting days, 29 April, 6 May and 10 June 2025, account for 40% of first calls. On 10 June a minister made a statement announcing UK sanctions on two Israeli ministers over settler violence, and 14 of those MPs made their first recorded call for recognition that day, many pointing to an international conference due the following week. Counting every MP, however often they spoke, 20 made their first call that day. A motion calling for recognition was tabled two days later. First calls for arms restrictions were spread more evenly."),
       p("Timing could in principle show whether MPs held their views from the start or arrived at them later. Most MPs who called for either had spoken on the subject before, without making the call. But recognition only became a live question in 2025, so this does not settle it."),
       el("p", { class: "small" }, el("a", { href: "#timeline" }, "See the timeline"))),
 
@@ -172,7 +172,7 @@
       section("Limits",
         ul([
           "Patterns between seats and MPs are associations. They cannot show that a seat caused an MP's views, and they say nothing about individual voters.",
-          "Being recorded making a call depends partly on how often an MP spoke. Only 1% of MPs who spoke once after July 2024 were recorded calling for arms restrictions, against 70% of those who spoke 20 or more times.",
+          "Being recorded making a call depends partly on how often an MP spoke. Only 1% of MPs who spoke once after July 2024 were recorded calling for arms restrictions, against 58% of those who spoke 20 or more times.",
           "Most codes are automated. A missed or wrong code can make an MP look unusual for their seat.",
           "I did all the hand-coding myself, so no second person has checked it.",
           "Motions can only show support for a call, because none opposed either one.",

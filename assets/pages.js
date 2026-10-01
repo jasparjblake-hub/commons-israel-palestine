@@ -72,12 +72,14 @@
     pre: { label: "2019 Parliament", get: m => m.pre },
     p24: { label: "2024 Parliament", get: m => m.p24 },
   };
-  function asksFor(m, period) {
-    const a = m.asks, b = m.asks24;
-    const sub = k => ({ called: a[k].called - b[k].called, opposed: a[k].opposed - b[k].opposed });
-    if (period === "all") return { arms: a.arms, rec: a.rec, cf: a.cf };
-    if (period === "p24") return { arms: b.arms, rec: b.rec, cf: b.cf };
-    return { arms: sub("arms"), rec: sub("rec"), cf: sub("cf") };
+  // Recorded calls for an MP in a period. With useHand, the calls the hand check found
+  // were not calls are taken out (asks_hc); calls that were never checked stay in.
+  function asksFor(m, period, useHand = F.useHand) {
+    const A = k => (useHand && m.asks_hc && m.asks_hc[k]) || m.asks[k];
+    const B = k => (useHand && m.asks24_hc && m.asks24_hc[k]) || m.asks24[k];
+    const one = k => period === "all" ? A(k) : period === "p24" ? B(k)
+      : { called: A(k).called - B(k).called, opposed: A(k).opposed - B(k).opposed };
+    return { arms: one("arms"), rec: one("rec"), cf: one("cf") };
   }
   const SEAT_MEASURES = {
     muslim_pc: "Muslim population share (%)",
@@ -119,18 +121,12 @@
     return { MPS, SEATS };
   }
 
-  function recBefore(m, period) {
-    const fc = period === "p24" ? m.asks24.rec.first_call : m.asks.rec.first_call;
-    if (period === "pre") return m.asks.rec.first_call && m.asks.rec.first_call < "2024-07-04";
+  function recBefore(m, period, useHand = F.useHand) {
+    const A = (useHand && m.asks_hc && m.asks_hc.rec) || m.asks.rec;
+    const B = (useHand && m.asks24_hc && m.asks24_hc.rec) || m.asks24.rec;
+    if (period === "pre") return !!A.first_call && A.first_call < "2024-07-04";
+    const fc = period === "p24" ? B.first_call : A.first_call;
     return !!fc && fc < RECOG_CUTOFF;
-  }
-  function stands(m, ask, code) {   // after the name check, does the recorded status stand?
-    if (!F.useHand) return true;
-    const h = m.after_hand_check;
-    if (ask === "rec" && code === "called") return h.rec_called;
-    if (ask === "arms" && code === "called") return h.arms_called;
-    if (ask === "arms" && code === "opposed") return h.arms_opposed;
-    return true;
   }
 
   function passes(m, skip) {
@@ -147,10 +143,8 @@
       const A = asksFor(m, F.period);
       for (const [k, , fn] of ASK_FILTERS) {
         if (!F.asks.has(k)) continue;
-        if (k === "rec_before") { if (!(recBefore(m, F.period) && stands(m, "rec", "called"))) return false; continue; }
+        if (k === "rec_before") { if (!recBefore(m, F.period)) return false; continue; }
         if (!fn(A)) return false;
-        const [ask, code] = k.split("_");
-        if (!stands(m, ask, code === "called" ? "called" : "opposed")) return false;
       }
     }
     for (const [k, , fn] of EDM_FILTERS) if (F.edms.has(k) && !fn(m)) return false;
@@ -193,13 +187,20 @@
     const head = el("div", { class: "stack" },
       el("p", { class: "eyebrow" }, "MP explorer"),
       el("h1", null, "MPs"),
-      el("p", null, "All 694 MPs who spoke in the debates covered. Use the filters to narrow the list, and select a name to see that MP's contributions, the words behind each entry and links to Hansard."),
+      el("p", null, "Every MP who spoke in the debates covered: 694 in all. The list starts with the " + fmtInt(MPS.filter(m => m.on_topic > 0).length) + " who spoke on Israel and Palestine itself; set the minimum to \u201CAny\u201D to include the rest. Use the filters to narrow the list, and select a name to see that MP's contributions, the words behind each entry and links to Hansard."),
       el("p", { class: "note" }, "These figures come from automated coding. " + ACC.claims + " Of the calls it records, 94% for recognition and 71% for arms restrictions were confirmed by hand. Shares are only shown for MPs with at least five on-topic contributions."));
     const filters = el("aside", { class: "filters panel", "aria-label": "Filters", "data-collapsed": "true" });
     const results = el("section", { "aria-label": "Results", class: "stack", style: "min-width:0" });
     root.append(head, el("div", { class: "explorer" }, filters, results));
 
-    const rerender = (keepShown) => { if (!keepShown) F.shown = 50; drawFilters(); drawResults(); };
+    // Redrawing removes the box that has focus, which can fire its "change" event in the
+    // middle of a redraw. A redraw asked for during another one waits until it has finished.
+    let drawing = false;
+    const rerender = (keepShown) => {
+      if (drawing) { setTimeout(() => rerender(keepShown)); return; }
+      drawing = true;
+      try { if (!keepShown) F.shown = 50; drawFilters(); drawResults(); } finally { drawing = false; }
+    };
 
     function chk(label, checked, onchange, count, id) {
       const input = el("input", { type: "checkbox", id, checked: !!checked });
@@ -221,7 +222,11 @@
       const nc = counts(m => m.nation || "none", "nation");
 
       const search = el("input", { type: "search", id: "f-q", value: F.q, placeholder: "Name or seat", "aria-label": "Search by name or seat" });
-      search.addEventListener("input", () => { F.q = search.value; F.shown = 50; drawResults(); });
+      search.addEventListener("input", () => {
+        F.q = search.value; rerender();
+        const s2 = document.getElementById("f-q");   // the box was redrawn: put the cursor back
+        if (s2) { s2.focus(); s2.setSelectionRange(s2.value.length, s2.value.length); }
+      });
 
       const periodSeg = el("div", { class: "seg", role: "group", "aria-label": "Period" },
         Object.entries(PERIODS).map(([k, p]) => {
@@ -263,7 +268,7 @@
         el("fieldset", { class: "fgroup" }, el("legend", null, "Calls recorded in this period"),
           ASK_FILTERS.map(([k, l]) => chk(l, F.asks.has(k), on => toggleSet(F.asks, k, on), undefined, "f-a-" + k)),
           chk("Apply the hand-check corrections", F.useHand, on => { F.useHand = on; rerender(); }, undefined, "f-hand"),
-          el("span", { class: "xs muted" }, "Ticking this removes the 7 recorded positions that the hand check found were not calls. Most were ministers describing Government policy. Leave it unticked to see the figures used in the analysis.")),
+          el("span", { class: "xs muted" }, "Ticking this takes out the 15 recorded calls that the hand check found were not calls, almost all of them ministers describing Government policy. Calls that were never checked, including every call made before July 2024, stay in. Leave it unticked to see the figures used in the analysis.")),
         el("fieldset", { class: "fgroup" }, el("legend", null, "Early Day Motions, 2024 Parliament"),
           EDM_FILTERS.map(([k, l]) => chk(l, F.edms.has(k), on => toggleSet(F.edms, k, on), undefined, "f-e-" + k)),
           el("span", { class: "xs muted" }, "Ministers and whips don't sign motions. No motion opposed either call.")),
@@ -297,12 +302,14 @@
       };
       const askCell = (m, k) => {
         const a = asksFor(m, F.period)[k];
+        const raw = asksFor(m, F.period, false)[k], hc = asksFor(m, F.period, true)[k];
+        const removed = (raw.called - hc.called) + (raw.opposed - hc.opposed);
         const parts = [];
-        const corrected = F.useHand ? false : (k === "rec" && a.called && !m.after_hand_check.rec_called) || (k === "arms" && a.called && !m.after_hand_check.arms_called);
-        if (a.called && stands(m, k, "called")) parts.push(el("span", null, "Called for ×" + a.called));
-        if (a.opposed && stands(m, k, "opposed")) parts.push(el("span", null, "Opposed ×" + a.opposed));
-        if (k === "rec" && recBefore(m, F.period) && stands(m, "rec", "called")) parts.push(el("span", { class: "xs muted" }, "before UK recognition"));
-        if (corrected) parts.push(el("span", { class: "tag corrected", title: "On checking, these were statements of Government policy." }, "hand check: not a call"));
+        if (a.called) parts.push(el("span", null, "Called for ×" + a.called));
+        if (a.opposed) parts.push(el("span", null, "Opposed ×" + a.opposed));
+        if (k === "rec" && recBefore(m, F.period)) parts.push(el("span", { class: "xs muted" }, "before UK recognition"));
+        if (!F.useHand && removed) parts.push(el("span", { class: "tag corrected", title: "The hand check found " + removed + " of these were not calls." },
+          "hand check: " + removed + (removed === 1 ? " not a call" : " not calls")));
         return parts.length ? el("div", { style: "display:grid;gap:1px" }, parts) : el("span", { class: "muted" }, "–");
       };
       const shareCell = (p, k) => p.on >= 5
@@ -337,7 +344,15 @@
       }
       more.append(el("button", { type: "button", class: "linkbtn", onclick: () => downloadCsv(rows) }, "Download these rows (CSV)"));
 
+      const SORTS = [["name", 1, "Name, A to Z"], ["party", 1, "Party"], ["on", -1, "Most on-topic contributions"],
+        ["c1", -1, "Highest Claim 1 share"], ["c2", -1, "Highest Claim 2 share"], ["arms", -1, "Most arms-restriction calls"],
+        ["rec", -1, "Most recognition calls"], ["edm", -1, "Most motions signed"]];
+      const sortSel = el("select", { id: "f-sort", "aria-label": "Sort by" }, SORTS.map(([k, d, l]) =>
+        el("option", { value: k, selected: F.sort === k }, l)));
+      sortSel.addEventListener("change", () => { const o = SORTS.find(x => x[0] === sortSel.value); F.sort = o[0]; F.dir = o[1]; F.shown = 50; drawResults(); });
+
       App.put(results, 
+        el("label", { class: "sort-phone flabel-inline small", for: "f-sort" }, "Sort by", sortSel),
         el("div", { class: "results-head" },
           el("p", { role: "status", "aria-live": "polite" }, el("b", null, fmtInt(rows.length)), " of " + fmtInt(MPS.length) + " MPs",
             el("span", { class: "muted" }, " · counts for " + PERIODS[F.period].label.toLowerCase() + (rows.length > F.shown ? " · showing " + F.shown : ""))),
@@ -368,13 +383,14 @@
       const P = PERIODS[F.period].get;
       const head = ["member_id", "name", "party_latest", "seat_2019_parliament", "seat_2024_parliament", "period",
         "on_topic", "claim1_made", "claim2_made", "arms_called_for", "arms_opposed", "recognition_called_for",
-        "recognition_opposed", "recognition_called_before_1sep2025", "ceasefire_called_for", "edm_on_topic_2024_parl", "hand_check"];
+        "recognition_opposed", "recognition_called_before_1sep2025", "ceasefire_called_for", "edm_on_topic_2024_parl", "hand_check",
+        "hand_check_corrections_applied"];
       const q = v => { const s = String(v ?? ""); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
       const lines = [head.join(",")].concat(rows.map(m => {
         const p = P(m), a = asksFor(m, F.period);
         return [m.id, m.name, m.party, m.seat_2019, m.seat_2024, PERIODS[F.period].label, p.on, p.c1, p.c2,
           a.arms.called, a.arms.opposed, a.rec.called, a.rec.opposed, recBefore(m, F.period) ? 1 : 0, a.cf.called,
-          m.edm["2024"].on_topic, m.hand_check.map(h => h.ask + " " + h.code + ": " + h.status).join("; ")].map(q).join(",");
+          m.edm["2024"].on_topic, m.hand_check.map(h => h.ask + " " + h.code + ": " + h.status).join("; "), F.useHand ? "yes" : "no"].map(q).join(",");
       }));
       const blob = new Blob(["﻿" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
       const a = el("a", { href: URL.createObjectURL(blob), download: "mps-filtered.csv" });
@@ -483,10 +499,20 @@
         (a.first_call ? ", first on " + fmtDate(a.first_call) : "") + (b.called ? " (" + b.called + " in the 2024 Parliament)" : "") + "."));
       if (a.opposed) lines.push(el("span", null, "Recorded opposing it in " + a.opposed + " contribution" + (a.opposed === 1 ? "" : "s") + "."));
       if (k === "rec" && a.called) lines.push(el("span", { class: "xs muted" }, m.rec_before_uk ? "The first call came before the UK recognised Palestine (cutoff 1 Sep 2025)." : "No call recorded before the UK recognised Palestine (cutoff 1 Sep 2025)."));
-      if (k === "cf" && a.called) lines.push(el("span", { class: "xs muted" }, "Immediate or unconditional: " + m.cf_terms.immediate + ". With conditions: " + m.cf_terms.conditional + "."));
-      const checks = askName ? hc(askName).map(h => el("div", { class: "correction" },
-        h.status === "NONE MISSED" ? "Hand check for missed calls: " : "Hand check of \u201C" + ASK_CODE[h.code] + "\u201D: ", el("b", null, STATUS[h.status] || h.status),
-        h.status === "REJECTED" ? ". The figure above is the model's. On checking, the quoted words were a statement of policy or otherwise not a call." : ".")) : [];
+      if (k === "cf" && a.called) lines.push(el("span", { class: "xs muted" }, "Immediate or unconditional: " + m.cf_terms.immediate +
+        ". With conditions: " + m.cf_terms.conditional + ". Terms not stated: " + (m.cf_terms.unspecified ?? 0) + "."));
+      const checks = askName ? hc(askName).map(h => {
+        if (h.status === "REJECTED") {
+          const f = h.code === "OPPOSED" ? "opposed" : "called";
+          const total = a[f], removed = total - ((m.asks_hc && m.asks_hc[k]) ? m.asks_hc[k][f] : total), rest = total - removed;
+          return el("div", { class: "correction" }, "Hand check of \u201C" + ASK_CODE[h.code] + "\u201D: ",
+            el("b", null, removed + " of these " + total + (removed === 1 ? " was not a call" : " were not calls")),
+            ". On checking, the quoted words were a statement of Government policy or otherwise not a call." +
+            (rest ? " The other " + rest + " " + (rest === 1 ? "was" : "were") + " not checked." : "") + " The figure above is the model's.");
+        }
+        return el("div", { class: "correction" },
+          h.status === "NONE MISSED" ? "Hand check for missed calls: " : "Hand check of \u201C" + ASK_CODE[h.code] + "\u201D: ", el("b", null, STATUS[h.status] || h.status), ".");
+      }) : [];
       return el("div", { class: "ask" },
         el("div", { class: "top" }, el("i", { class: "swatch sw-" + k }), el("span", { class: "what" }, ASK[k].label)),
         lines, checks,
@@ -527,17 +553,22 @@
     const all = [...SEATS.values()];
     const rank = (k, v) => {
       const vals = all.map(x => x[k]).filter(x => x !== null && x !== undefined);
-      return { below: vals.filter(x => x < v).length / vals.length, n: vals.length };
+      const below = vals.filter(x => x < v).length, above = vals.filter(x => x > v).length, n = vals.length;
+      let text;
+      if (!above) text = "the highest of " + n + " seats";
+      else if (!below) text = "the lowest of " + n + " seats";
+      else text = "higher than " + Math.min(99, Math.max(1, Math.round(100 * below / (n - 1)))) + "% of the other " + (n - 1) + " seats";
+      return text;
     };
+    const num = v => v < 1 ? v.toFixed(2) : v.toFixed(1);
     return el("section", { class: "panel stack" },
       el("h2", { style: "font-size:1.2rem" }, "Seat: " + s.name),
       el("p", { class: "xs muted" }, s.region + ", " + s.nation + " · 2024 boundaries · 2024 winning party: " + s.winner_party_2024),
       el("dl", { class: "kv" }, SEAT_ROWS.map(([k, label, unit]) => {
         const v = s[k];
         if (v === null || v === undefined) return [el("dt", null, label), el("dd", { class: "muted" }, "not available")];
-        const rk = rank(k, v);
-        return [el("dt", null, label), el("dd", null, v.toFixed(1) + " " + unit,
-          el("span", { class: "muted", style: "display:block" }, "higher than " + Math.round(100 * rk.below) + "% of " + rk.n + " seats"))];
+        return [el("dt", null, label), el("dd", null, num(v) + unit,
+          el("span", { class: "muted", style: "display:block" }, rank(k, v)))];
       }), el("dt", null, "City or town"), el("dd", null, s.city === null ? "–" : s.city ? "City" : "Town or village")),
       s.challenger !== null ? el("p", { class: "xs muted" }, "2024: a candidate classified as Gaza-focused on their own published material took 5% or more of the vote: " +
         ({ "1": "yes", "0": "no", "UNKNOWN": "not determinable" }[s.challenger] || s.challenger) + ".") : null,
@@ -581,13 +612,15 @@
         el("span", { class: "k" }, el("i", { class: "swatch sw-" + swatch }), label),
         el("span", null, el("span", { class: "v" }, value), quote ? [" ", el("q", null, quote)] : null));
     }
+    // A few codes returned by the model are not in the scheme. They are shown as such and not counted.
+    const label = (map, v) => map[v] || "not counted (the model returned an unusable code)";
     function card(c) {
       const rows = [];
-      if (c.c1 !== "ABSENT") rows.push(codeRow("c1", "Claim 1", CLAIM_CODE[c.c1], c.q1));
-      if (c.c2 !== "ABSENT") rows.push(codeRow("c2", "Claim 2", CLAIM_CODE[c.c2], c.q2));
-      if (c.arms && c.arms !== "ABSENT") rows.push(codeRow("arms", "Arms restrictions", ASK_CODE[c.arms], c.qa));
-      if (c.rec && c.rec !== "ABSENT") rows.push(codeRow("rec", "Recognition", ASK_CODE[c.rec], c.qr));
-      if (c.cf && c.cf !== "ABSENT") rows.push(codeRow("cf", "Ceasefire", ASK_CODE[c.cf] + (c.cft ? " (" + c.cft.toLowerCase() + ")" : ""), c.qc));
+      if (c.c1 !== "ABSENT") rows.push(codeRow("c1", "Claim 1", label(CLAIM_CODE, c.c1), c.q1));
+      if (c.c2 !== "ABSENT") rows.push(codeRow("c2", "Claim 2", label(CLAIM_CODE, c.c2), c.q2));
+      if (c.arms && c.arms !== "ABSENT") rows.push(codeRow("arms", "Arms restrictions", label(ASK_CODE, c.arms), c.qa));
+      if (c.rec && c.rec !== "ABSENT") rows.push(codeRow("rec", "Recognition", label(ASK_CODE, c.rec), c.qr));
+      if (c.cf && c.cf !== "ABSENT") rows.push(codeRow("cf", "Ceasefire", label(ASK_CODE, c.cf) + (c.cft ? " (" + c.cft.toLowerCase() + ")" : ""), c.qc));
       if (!rows.length) rows.push(el("p", { class: "small muted" }, "Neither claim was made in the MP's own voice, and no call was recorded."));
       const VERD = { YES: "confirmed as a call", NO: "not a call", UNSURE: "unsure" };
       return el("article", { class: "contrib" },
