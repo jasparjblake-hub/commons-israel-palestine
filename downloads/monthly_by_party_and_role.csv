@@ -1,0 +1,380 @@
+month,period,party,role,on_topic,claim1_asserted,claim2_asserted,arms_called,arms_opposed,rec_called,rec_opposed,cf_called,cf_opposed
+2023-10,P1,Alba Party,backbench,1,1,1,0,0,0,0,1,0
+2023-10,P1,Alliance,backbench,1,1,1,0,0,0,0,0,0
+2023-10,P1,Conservative,backbench,119,29,91,0,0,0,0,2,0
+2023-10,P1,Conservative,government,245,83,143,0,0,0,0,0,4
+2023-10,P1,Democratic Unionist Party,opposition,4,1,4,0,0,0,0,0,0
+2023-10,P1,Green Party,backbench,4,4,3,0,0,0,0,2,0
+2023-10,P1,Independent,backbench,5,4,3,0,0,1,0,3,0
+2023-10,P1,Labour,backbench,66,44,40,0,0,1,0,21,0
+2023-10,P1,Labour,opposition,60,45,31,0,0,0,0,1,0
+2023-10,P1,Liberal Democrat,backbench,2,2,2,0,0,0,0,1,0
+2023-10,P1,Liberal Democrat,opposition,7,6,3,0,0,1,0,2,0
+2023-10,P1,Plaid Cymru,opposition,3,2,1,0,0,0,0,0,0
+2023-10,P1,Scottish National Party,backbench,8,8,3,0,0,0,0,4,0
+2023-10,P1,Scottish National Party,opposition,30,26,15,0,0,0,0,11,0
+2023-10,P1,Social Democratic & Labour Party,backbench,2,2,2,0,0,1,0,2,0
+2023-11,P1,Alba Party,backbench,4,4,1,0,0,0,0,2,0
+2023-11,P1,Alliance,backbench,2,2,1,0,0,0,0,2,0
+2023-11,P1,Conservative,backbench,81,40,57,1,0,0,0,6,8
+2023-11,P1,Conservative,government,228,96,80,0,1,0,0,8,13
+2023-11,P1,Democratic Unionist Party,opposition,7,1,5,0,0,0,0,0,3
+2023-11,P1,Green Party,backbench,1,1,0,0,0,0,0,1,0
+2023-11,P1,Independent,backbench,9,8,6,0,0,0,0,7,1
+2023-11,P1,Labour,backbench,81,72,33,3,0,3,0,39,1
+2023-11,P1,Labour,opposition,71,60,30,0,0,0,0,28,0
+2023-11,P1,Liberal Democrat,backbench,1,1,1,0,0,0,0,0,0
+2023-11,P1,Liberal Democrat,opposition,10,6,4,0,0,0,0,3,0
+2023-11,P1,Plaid Cymru,opposition,3,3,2,0,0,0,0,2,0
+2023-11,P1,Scottish National Party,backbench,16,13,4,0,0,0,0,4,0
+2023-11,P1,Scottish National Party,opposition,25,21,7,0,0,1,0,15,0
+2023-11,P1,Social Democratic & Labour Party,backbench,2,2,2,0,0,0,0,1,0
+2023-11,P1,The Reclaim Party,backbench,1,0,1,0,0,0,0,0,0
+2023-12,P1,Alba Party,backbench,1,1,0,0,0,0,0,0,0
+2023-12,P1,Alliance,backbench,2,0,0,0,0,0,0,1,0
+2023-12,P1,Conservative,backbench,60,21,45,0,0,0,0,5,4
+2023-12,P1,Conservative,government,203,85,75,0,0,0,0,16,17
+2023-12,P1,Democratic Unionist Party,opposition,6,0,5,0,0,0,0,0,1
+2023-12,P1,Independent,backbench,7,6,2,0,0,0,0,2,0
+2023-12,P1,Labour,backbench,58,53,12,1,0,2,0,32,0
+2023-12,P1,Labour,opposition,58,44,22,0,0,0,0,24,0
+2023-12,P1,Liberal Democrat,opposition,12,8,2,0,0,2,0,2,0
+2023-12,P1,Plaid Cymru,opposition,2,2,0,0,0,0,0,1,0
+2023-12,P1,Scottish National Party,backbench,6,4,2,0,0,0,0,0,0
+2023-12,P1,Scottish National Party,opposition,22,18,4,1,0,2,0,8,0
+2023-12,P1,Social Democratic & Labour Party,backbench,1,1,0,0,0,0,0,0,0
+2023-12,P1,The Reclaim Party,backbench,1,1,0,0,0,0,0,0,0
+2024-01,P1,Alba Party,backbench,3,3,0,0,0,0,0,1,0
+2024-01,P1,Alliance,backbench,2,1,0,0,0,0,0,0,0
+2024-01,P1,Conservative,backbench,78,28,46,0,0,1,4,5,1
+2024-01,P1,Conservative,government,184,88,55,0,0,0,0,31,2
+2024-01,P1,Democratic Unionist Party,opposition,2,0,2,0,0,0,0,0,0
+2024-01,P1,Green Party,backbench,2,2,0,0,0,0,0,2,0
+2024-01,P1,Independent,backbench,7,6,1,2,0,0,0,1,0
+2024-01,P1,Labour,backbench,74,60,12,10,0,5,0,21,0
+2024-01,P1,Labour,opposition,45,34,16,0,0,1,0,17,0
+2024-01,P1,Liberal Democrat,backbench,1,1,1,0,0,0,0,0,0
+2024-01,P1,Liberal Democrat,opposition,11,7,7,0,0,1,0,4,0
+2024-01,P1,Plaid Cymru,opposition,2,2,0,0,0,0,0,0,0
+2024-01,P1,Scottish National Party,backbench,14,13,3,2,0,2,0,4,0
+2024-01,P1,Scottish National Party,opposition,22,18,3,1,0,2,0,8,0
+2024-01,P1,Social Democratic & Labour Party,backbench,2,2,0,0,0,0,0,1,0
+2024-02,P1,Alba Party,backbench,1,1,0,0,0,0,0,1,0
+2024-02,P1,Conservative,backbench,9,1,7,0,0,0,0,0,0
+2024-02,P1,Conservative,government,26,12,12,0,1,0,0,8,0
+2024-02,P1,Democratic Unionist Party,opposition,1,1,0,0,0,0,0,0,0
+2024-02,P1,Independent,backbench,1,1,0,0,0,0,0,1,0
+2024-02,P1,Labour,backbench,11,8,2,1,0,0,0,0,0
+2024-02,P1,Labour,opposition,7,5,5,0,0,1,0,4,0
+2024-02,P1,Scottish National Party,backbench,11,8,0,0,0,0,0,0,0
+2024-02,P1,Scottish National Party,opposition,4,4,1,0,0,1,0,1,0
+2024-02,P2,Alba Party,backbench,3,3,2,1,0,0,0,2,0
+2024-02,P2,Alliance,backbench,1,1,0,0,0,0,0,0,0
+2024-02,P2,Conservative,backbench,52,22,36,0,1,1,0,17,8
+2024-02,P2,Conservative,government,84,34,36,0,0,0,0,20,1
+2024-02,P2,Democratic Unionist Party,opposition,3,2,3,0,0,0,0,0,0
+2024-02,P2,Green Party,backbench,1,1,0,0,0,0,0,0,0
+2024-02,P2,Independent,backbench,8,7,3,3,0,0,0,6,0
+2024-02,P2,Labour,backbench,33,28,9,6,0,3,0,16,0
+2024-02,P2,Labour,opposition,49,33,18,0,0,11,0,30,0
+2024-02,P2,Liberal Democrat,backbench,1,1,1,0,0,0,0,1,0
+2024-02,P2,Liberal Democrat,opposition,11,8,6,0,0,1,0,4,0
+2024-02,P2,Plaid Cymru,opposition,2,2,1,2,0,0,0,1,0
+2024-02,P2,Scottish National Party,backbench,20,16,6,1,0,0,0,10,0
+2024-02,P2,Scottish National Party,opposition,49,42,21,9,2,1,0,26,0
+2024-02,P2,Social Democratic & Labour Party,backbench,4,4,1,0,0,0,0,2,0
+2024-03,P2,Alba Party,backbench,3,3,0,1,0,0,0,0,0
+2024-03,P2,Conservative,backbench,54,16,35,0,0,0,0,6,3
+2024-03,P2,Conservative,government,171,79,62,0,0,0,0,20,4
+2024-03,P2,Democratic Unionist Party,opposition,3,1,2,0,0,0,0,0,1
+2024-03,P2,Green Party,backbench,1,1,0,1,0,0,0,0,0
+2024-03,P2,Independent,backbench,2,2,1,0,0,1,0,1,0
+2024-03,P2,Labour,backbench,68,61,8,15,0,2,0,12,0
+2024-03,P2,Labour,opposition,34,29,12,1,0,0,0,10,0
+2024-03,P2,Liberal Democrat,opposition,7,7,2,2,0,0,0,3,0
+2024-03,P2,Plaid Cymru,opposition,2,2,0,0,0,0,0,0,0
+2024-03,P2,Scottish National Party,backbench,12,10,0,1,0,0,0,1,0
+2024-03,P2,Scottish National Party,opposition,12,10,1,3,0,0,0,3,0
+2024-03,P2,Workers Party of Britain,backbench,1,1,0,0,0,0,0,0,0
+2024-04,P2,Alliance,backbench,1,1,1,0,0,0,0,0,0
+2024-04,P2,Conservative,backbench,45,16,23,0,3,0,0,2,1
+2024-04,P2,Conservative,government,136,77,55,0,3,0,0,18,0
+2024-04,P2,Democratic Unionist Party,backbench,1,0,1,0,0,0,0,0,0
+2024-04,P2,Democratic Unionist Party,opposition,3,0,3,0,0,0,0,0,0
+2024-04,P2,Green Party,backbench,1,1,1,0,0,0,0,1,0
+2024-04,P2,Independent,backbench,6,5,0,1,0,0,0,2,0
+2024-04,P2,Labour,backbench,55,48,6,6,0,1,0,11,0
+2024-04,P2,Labour,opposition,29,24,9,0,0,0,0,8,0
+2024-04,P2,Liberal Democrat,backbench,1,1,1,0,0,0,0,1,0
+2024-04,P2,Liberal Democrat,opposition,6,5,1,0,0,0,0,2,0
+2024-04,P2,Plaid Cymru,opposition,1,0,0,0,0,0,0,0,0
+2024-04,P2,Scottish National Party,backbench,8,8,0,2,0,0,0,1,0
+2024-04,P2,Scottish National Party,opposition,19,18,1,4,0,0,0,3,0
+2024-04,P2,Social Democratic & Labour Party,backbench,1,1,0,1,0,0,0,0,0
+2024-04,P2,Workers Party of Britain,backbench,3,3,0,1,0,0,0,0,0
+2024-05,P2,Alba Party,backbench,3,2,0,2,0,0,0,0,0
+2024-05,P2,Conservative,backbench,38,17,27,0,3,0,1,5,2
+2024-05,P2,Conservative,government,132,54,37,0,0,0,0,10,0
+2024-05,P2,Democratic Unionist Party,opposition,3,0,3,0,0,0,0,0,0
+2024-05,P2,Green Party,backbench,1,1,0,1,0,0,0,0,0
+2024-05,P2,Independent,backbench,3,1,1,0,0,0,0,0,0
+2024-05,P2,Labour,backbench,38,35,8,17,1,0,0,8,0
+2024-05,P2,Labour,opposition,37,32,11,3,0,0,0,9,0
+2024-05,P2,Liberal Democrat,opposition,6,6,1,3,0,0,0,0,0
+2024-05,P2,Plaid Cymru,opposition,2,2,0,0,0,0,0,0,0
+2024-05,P2,Scottish National Party,backbench,7,7,0,2,0,0,0,1,0
+2024-05,P2,Scottish National Party,opposition,10,10,2,5,1,0,0,1,0
+2024-05,P2,Workers Party of Britain,backbench,2,1,0,1,0,0,0,0,0
+2024-07,P3,Conservative,backbench,7,3,5,0,0,0,0,2,0
+2024-07,P3,Conservative,opposition,7,4,7,0,1,0,1,2,0
+2024-07,P3,Democratic Unionist Party,backbench,2,0,2,0,0,0,0,0,1
+2024-07,P3,Green Party,opposition,2,2,2,2,0,0,0,1,0
+2024-07,P3,Independent,backbench,16,14,0,6,0,3,0,4,0
+2024-07,P3,Labour,backbench,45,35,9,6,0,7,0,17,0
+2024-07,P3,Labour,government,58,41,15,0,1,3,0,15,0
+2024-07,P3,Liberal Democrat,backbench,3,2,2,0,0,1,0,2,0
+2024-07,P3,Liberal Democrat,opposition,8,8,4,2,0,3,0,3,0
+2024-07,P3,Scottish National Party,opposition,3,3,1,1,0,0,0,0,0
+2024-09,P3,Conservative,backbench,3,1,2,0,1,0,0,0,0
+2024-09,P3,Conservative,opposition,3,1,3,0,2,0,0,0,0
+2024-09,P3,Democratic Unionist Party,backbench,2,0,2,0,1,0,0,0,0
+2024-09,P3,Green Party,opposition,1,1,0,1,0,0,0,0,0
+2024-09,P3,Independent,backbench,3,3,0,1,0,0,0,0,0
+2024-09,P3,Labour,backbench,15,13,5,1,0,0,0,2,0
+2024-09,P3,Labour,government,27,17,11,2,1,0,0,5,0
+2024-09,P3,Liberal Democrat,backbench,1,0,0,0,0,0,0,0,0
+2024-09,P3,Liberal Democrat,opposition,1,1,1,1,0,0,0,1,0
+2024-09,P3,Plaid Cymru,backbench,1,1,0,0,0,0,0,0,0
+2024-09,P3,Scottish National Party,opposition,2,2,0,2,0,0,0,0,0
+2024-10,P3,Conservative,backbench,23,12,13,0,0,1,0,3,0
+2024-10,P3,Conservative,opposition,17,3,15,0,0,0,0,0,0
+2024-10,P3,Democratic Unionist Party,backbench,6,1,6,0,1,0,0,0,0
+2024-10,P3,Green Party,opposition,3,3,1,1,0,0,0,1,0
+2024-10,P3,Independent,backbench,27,25,7,15,0,1,0,4,0
+2024-10,P3,Labour,backbench,111,90,39,6,0,5,0,23,0
+2024-10,P3,Labour,government,204,135,64,1,6,4,0,37,0
+2024-10,P3,Liberal Democrat,backbench,12,11,2,1,0,0,0,1,0
+2024-10,P3,Liberal Democrat,opposition,11,8,4,1,0,1,0,3,0
+2024-10,P3,Plaid Cymru,backbench,1,0,0,0,0,0,0,0,0
+2024-10,P3,Reform UK,backbench,1,0,1,0,0,0,0,1,0
+2024-10,P3,Scottish National Party,opposition,9,8,1,3,0,0,0,1,0
+2024-10,P3,Social Democratic & Labour Party,backbench,1,1,0,1,0,0,0,0,0
+2024-10,P3,Traditional Unionist Voice,backbench,1,0,1,0,0,0,0,0,0
+2024-11,P3,Conservative,backbench,12,0,5,0,0,0,0,0,0
+2024-11,P3,Conservative,opposition,6,0,3,0,0,0,0,0,0
+2024-11,P3,Democratic Unionist Party,backbench,2,0,2,0,0,0,0,0,0
+2024-11,P3,Green Party,opposition,1,1,0,0,0,0,0,0,0
+2024-11,P3,Independent,backbench,17,15,0,8,0,1,0,1,0
+2024-11,P3,Labour,backbench,41,33,7,5,0,3,0,11,0
+2024-11,P3,Labour,government,78,42,19,0,1,0,0,11,0
+2024-11,P3,Liberal Democrat,backbench,5,4,0,2,0,2,0,0,0
+2024-11,P3,Liberal Democrat,opposition,7,6,2,0,0,1,0,2,0
+2024-11,P3,Plaid Cymru,backbench,1,1,1,0,0,0,0,0,0
+2024-11,P3,Scottish National Party,opposition,4,4,0,1,0,0,0,0,0
+2024-12,P3,Conservative,backbench,2,0,2,0,0,0,0,0,0
+2024-12,P3,Green Party,opposition,1,1,0,0,0,0,0,0,0
+2024-12,P3,Independent,backbench,2,1,0,0,0,0,0,0,0
+2024-12,P3,Labour,backbench,5,4,1,0,0,0,0,0,0
+2024-12,P3,Labour,government,8,6,5,0,0,0,0,3,0
+2024-12,P3,Social Democratic & Labour Party,backbench,1,1,0,1,0,1,0,0,0
+2025-01,P3,Conservative,backbench,16,6,13,0,0,0,0,1,0
+2025-01,P3,Conservative,opposition,11,3,9,0,0,0,0,2,1
+2025-01,P3,Democratic Unionist Party,backbench,4,2,4,0,0,0,0,0,0
+2025-01,P3,Green Party,opposition,3,3,1,1,0,1,0,0,0
+2025-01,P3,Independent,backbench,25,25,4,3,0,1,0,2,0
+2025-01,P3,Labour,backbench,94,76,31,5,0,3,0,9,0
+2025-01,P3,Labour,government,173,125,44,0,0,0,0,20,0
+2025-01,P3,Liberal Democrat,backbench,10,9,1,2,0,2,0,1,0
+2025-01,P3,Liberal Democrat,opposition,9,6,4,1,0,4,0,2,0
+2025-01,P3,Plaid Cymru,backbench,2,2,1,0,0,0,0,0,0
+2025-01,P3,Scottish National Party,opposition,5,5,2,2,0,0,0,0,0
+2025-01,P3,Traditional Unionist Voice,backbench,1,0,1,0,0,0,0,0,0
+2025-02,P3,Conservative,backbench,10,2,5,0,0,0,0,0,0
+2025-02,P3,Conservative,opposition,10,2,6,0,0,0,0,0,0
+2025-02,P3,Democratic Unionist Party,backbench,3,1,3,0,0,0,0,0,0
+2025-02,P3,Green Party,opposition,1,1,0,0,0,1,0,0,0
+2025-02,P3,Independent,backbench,5,4,1,0,0,1,0,0,0
+2025-02,P3,Labour,backbench,39,34,5,1,0,4,0,2,0
+2025-02,P3,Labour,government,68,45,18,0,0,0,0,6,0
+2025-02,P3,Liberal Democrat,backbench,5,5,0,0,0,0,0,0,0
+2025-02,P3,Liberal Democrat,opposition,5,4,3,0,0,2,0,1,0
+2025-02,P3,Plaid Cymru,backbench,1,1,0,0,0,0,0,0,0
+2025-02,P3,Reform UK,backbench,1,0,1,0,0,0,0,0,0
+2025-02,P3,Scottish National Party,opposition,2,1,0,0,0,0,0,0,0
+2025-03,P3,Conservative,backbench,9,5,6,0,0,0,0,1,0
+2025-03,P3,Conservative,opposition,7,0,5,0,1,0,0,0,0
+2025-03,P3,Democratic Unionist Party,backbench,5,1,5,0,0,0,0,0,0
+2025-03,P3,Green Party,opposition,4,2,1,0,0,0,0,1,0
+2025-03,P3,Independent,backbench,7,7,0,4,0,1,0,1,0
+2025-03,P3,Labour,backbench,51,46,13,4,0,4,0,11,0
+2025-03,P3,Labour,government,90,54,25,0,0,0,0,17,0
+2025-03,P3,Liberal Democrat,backbench,4,4,0,0,0,0,0,0,0
+2025-03,P3,Liberal Democrat,opposition,5,5,2,0,0,2,0,2,0
+2025-03,P3,Plaid Cymru,backbench,2,2,0,1,0,0,0,0,0
+2025-03,P3,Scottish National Party,opposition,3,3,0,1,0,0,0,0,0
+2025-04,P3,Conservative,backbench,16,6,6,0,0,0,1,3,0
+2025-04,P3,Conservative,opposition,7,2,6,0,0,0,1,0,0
+2025-04,P3,Democratic Unionist Party,backbench,7,0,5,0,0,0,0,0,0
+2025-04,P3,Green Party,opposition,5,4,0,1,0,0,0,0,0
+2025-04,P3,Independent,backbench,16,15,1,2,0,3,0,2,0
+2025-04,P3,Labour,backbench,112,84,22,3,0,13,0,8,0
+2025-04,P3,Labour,government,170,81,31,0,0,0,0,17,0
+2025-04,P3,Liberal Democrat,backbench,12,10,3,1,0,1,0,1,0
+2025-04,P3,Liberal Democrat,opposition,10,8,3,0,0,3,0,2,0
+2025-04,P3,Plaid Cymru,backbench,1,1,0,1,0,0,0,0,0
+2025-04,P3,Scottish National Party,opposition,5,4,1,1,0,1,0,0,0
+2025-05,P3,Conservative,backbench,24,16,14,0,0,3,0,0,0
+2025-05,P3,Conservative,opposition,6,2,6,0,0,0,0,1,0
+2025-05,P3,Democratic Unionist Party,backbench,4,2,4,0,0,0,0,0,0
+2025-05,P3,Green Party,opposition,4,4,0,0,0,0,0,0,0
+2025-05,P3,Independent,backbench,22,22,0,6,1,0,0,0,0
+2025-05,P3,Labour,backbench,118,113,16,14,0,24,0,9,0
+2025-05,P3,Labour,government,190,128,37,1,0,2,0,26,0
+2025-05,P3,Liberal Democrat,backbench,11,10,2,2,0,6,0,1,0
+2025-05,P3,Liberal Democrat,opposition,16,15,2,5,0,6,0,0,0
+2025-05,P3,Plaid Cymru,backbench,3,3,0,0,0,0,0,0,0
+2025-05,P3,Scottish National Party,opposition,8,8,0,5,0,2,0,0,0
+2025-06,P3,Conservative,backbench,24,15,6,0,0,5,0,1,0
+2025-06,P3,Conservative,opposition,6,3,5,0,0,0,0,0,0
+2025-06,P3,Democratic Unionist Party,backbench,4,0,4,0,1,0,0,0,0
+2025-06,P3,Green Party,opposition,5,4,0,1,0,0,0,0,0
+2025-06,P3,Independent,backbench,27,22,1,8,0,1,0,1,0
+2025-06,P3,Labour,backbench,141,121,16,23,0,45,0,7,0
+2025-06,P3,Labour,government,212,122,38,0,2,0,0,24,0
+2025-06,P3,Liberal Democrat,backbench,19,15,2,2,0,5,0,1,0
+2025-06,P3,Liberal Democrat,opposition,15,14,5,3,0,5,0,3,0
+2025-06,P3,Plaid Cymru,backbench,1,1,0,0,0,0,0,0,0
+2025-06,P3,Scottish National Party,opposition,7,4,0,3,0,1,0,0,0
+2025-06,P3,Social Democratic & Labour Party,backbench,1,1,0,0,0,1,0,0,0
+2025-06,P3,Ulster Unionist Party,backbench,1,0,1,0,0,0,0,0,0
+2025-07,P3,Conservative,backbench,9,7,4,0,0,1,0,0,0
+2025-07,P3,Conservative,opposition,5,1,3,0,0,0,0,1,0
+2025-07,P3,Democratic Unionist Party,backbench,2,0,1,0,0,0,1,1,0
+2025-07,P3,Green Party,opposition,3,3,0,2,0,1,0,0,0
+2025-07,P3,Independent,backbench,12,10,0,3,0,1,0,0,0
+2025-07,P3,Labour,backbench,63,49,7,4,0,7,0,14,0
+2025-07,P3,Labour,government,74,47,13,0,0,2,0,18,0
+2025-07,P3,Liberal Democrat,backbench,7,6,0,3,0,2,0,1,0
+2025-07,P3,Liberal Democrat,opposition,5,5,2,1,0,1,0,1,0
+2025-07,P3,Plaid Cymru,backbench,1,0,0,0,0,0,0,0,0
+2025-07,P3,Scottish National Party,opposition,3,3,1,1,0,1,0,1,0
+2025-09,P4,Conservative,backbench,20,11,10,0,0,0,1,3,0
+2025-09,P4,Conservative,opposition,4,3,4,0,0,0,1,1,0
+2025-09,P4,Democratic Unionist Party,backbench,6,0,5,0,0,0,0,1,0
+2025-09,P4,Green Party,opposition,4,3,0,3,0,0,0,0,0
+2025-09,P4,Independent,backbench,19,15,3,2,1,2,0,2,0
+2025-09,P4,Labour,backbench,89,68,15,2,0,5,0,5,0
+2025-09,P4,Labour,government,160,95,28,0,1,6,0,14,0
+2025-09,P4,Liberal Democrat,backbench,28,19,1,5,0,4,0,0,0
+2025-09,P4,Liberal Democrat,opposition,17,14,4,3,0,1,0,1,0
+2025-09,P4,Plaid Cymru,backbench,4,3,0,0,0,0,0,1,0
+2025-09,P4,Scottish National Party,opposition,7,4,0,1,0,1,0,0,0
+2025-09,P4,Social Democratic & Labour Party,backbench,1,1,0,1,0,1,0,0,0
+2025-10,P4,Conservative,backbench,13,3,10,0,0,1,1,0,0
+2025-10,P4,Conservative,opposition,13,1,13,0,0,0,1,1,0
+2025-10,P4,Democratic Unionist Party,backbench,8,1,8,0,0,0,1,0,0
+2025-10,P4,Green Party,opposition,2,2,0,0,0,0,0,0,0
+2025-10,P4,Independent,backbench,15,12,3,1,0,0,0,0,0
+2025-10,P4,Labour,backbench,75,50,26,2,0,1,0,1,0
+2025-10,P4,Labour,government,125,56,43,0,0,0,0,6,0
+2025-10,P4,Liberal Democrat,backbench,12,8,4,0,0,1,0,0,0
+2025-10,P4,Liberal Democrat,opposition,14,11,4,0,0,0,0,0,0
+2025-10,P4,Plaid Cymru,backbench,2,2,0,0,0,0,0,0,0
+2025-10,P4,Reform UK,backbench,4,1,4,0,0,0,1,0,0
+2025-10,P4,Scottish National Party,opposition,3,3,2,0,0,0,0,0,0
+2025-10,P4,Social Democratic & Labour Party,backbench,1,1,1,0,0,0,0,0,0
+2025-10,P4,Traditional Unionist Voice,backbench,2,0,2,0,0,0,0,0,0
+2025-11,P4,Conservative,backbench,7,2,2,0,0,0,0,0,0
+2025-11,P4,Conservative,opposition,4,1,3,0,0,0,0,0,0
+2025-11,P4,Democratic Unionist Party,backbench,4,0,2,0,0,0,0,0,0
+2025-11,P4,Green Party,opposition,1,1,0,0,0,0,0,0,0
+2025-11,P4,Independent,backbench,2,2,0,1,0,0,0,1,0
+2025-11,P4,Labour,backbench,10,8,1,0,0,0,0,0,0
+2025-11,P4,Labour,government,26,19,4,0,0,0,0,0,0
+2025-11,P4,Liberal Democrat,backbench,1,1,0,0,0,0,0,0,0
+2025-11,P4,Liberal Democrat,opposition,1,1,1,0,0,0,0,0,0
+2025-12,P4,Conservative,opposition,3,0,1,0,1,0,0,0,0
+2025-12,P4,Green Party,opposition,1,1,0,0,0,0,0,0,0
+2025-12,P4,Independent,backbench,1,1,0,0,0,0,0,0,0
+2025-12,P4,Labour,backbench,12,11,3,0,0,0,0,0,0
+2025-12,P4,Labour,government,13,12,2,0,0,0,0,1,0
+2025-12,P4,Liberal Democrat,opposition,1,1,0,0,0,0,0,0,0
+2025-12,P4,Scottish National Party,opposition,1,1,0,0,0,0,0,0,0
+2026-01,P4,Conservative,backbench,10,1,8,0,0,0,0,0,0
+2026-01,P4,Conservative,opposition,5,0,5,0,0,0,0,0,0
+2026-01,P4,Democratic Unionist Party,backbench,1,0,0,0,0,0,0,0,0
+2026-01,P4,Green Party,opposition,2,1,0,0,0,0,0,0,0
+2026-01,P4,Independent,backbench,11,9,0,1,0,0,0,1,0
+2026-01,P4,Labour,backbench,47,39,5,1,0,0,0,0,0
+2026-01,P4,Labour,government,56,45,7,0,0,0,0,0,0
+2026-01,P4,Liberal Democrat,backbench,2,2,0,0,0,0,0,0,0
+2026-01,P4,Liberal Democrat,opposition,7,5,1,1,0,0,0,0,0
+2026-01,P4,Scottish National Party,opposition,1,1,0,0,0,0,0,0,0
+2026-02,P4,Conservative,backbench,3,2,2,0,0,0,0,0,0
+2026-02,P4,Conservative,opposition,1,0,1,0,0,0,0,0,0
+2026-02,P4,Democratic Unionist Party,backbench,3,0,3,0,0,0,0,0,0
+2026-02,P4,Green Party,opposition,1,1,0,1,0,0,0,0,0
+2026-02,P4,Independent,backbench,9,8,2,2,0,0,0,0,0
+2026-02,P4,Labour,backbench,32,27,2,4,0,0,0,0,0
+2026-02,P4,Labour,government,8,5,3,0,0,0,0,0,0
+2026-02,P4,Liberal Democrat,backbench,1,1,1,1,0,0,0,0,0
+2026-02,P4,Liberal Democrat,opposition,2,2,1,0,0,0,0,0,0
+2026-02,P4,Scottish National Party,opposition,4,4,1,0,2,0,0,0,0
+2026-03,P4,Conservative,backbench,8,3,3,0,0,1,0,0,0
+2026-03,P4,Conservative,opposition,3,0,3,0,0,0,0,0,0
+2026-03,P4,Democratic Unionist Party,backbench,1,0,1,0,0,0,0,0,0
+2026-03,P4,Green Party,opposition,1,1,0,0,0,0,0,0,0
+2026-03,P4,Independent,backbench,3,3,0,0,1,0,0,0,0
+2026-03,P4,Labour,backbench,22,19,1,1,0,0,0,0,0
+2026-03,P4,Labour,government,35,20,2,0,0,0,0,0,0
+2026-03,P4,Liberal Democrat,backbench,1,1,0,0,0,0,0,0,0
+2026-03,P4,Liberal Democrat,opposition,3,3,0,0,0,0,0,0,0
+2026-04,P4,Conservative,opposition,1,0,1,0,0,0,0,0,0
+2026-04,P4,Green Party,opposition,1,1,0,1,0,0,0,0,0
+2026-04,P4,Independent,backbench,7,7,0,1,0,0,0,0,0
+2026-04,P4,Labour,backbench,23,17,0,0,0,0,0,0,0
+2026-04,P4,Labour,government,20,16,0,0,0,0,0,0,0
+2026-04,P4,Liberal Democrat,backbench,2,2,0,1,0,0,0,0,0
+2026-04,P4,Liberal Democrat,opposition,4,4,0,0,0,0,0,0,0
+2026-04,P4,Your Party,backbench,1,1,0,0,0,0,0,0,0
+2026-05,P4,Conservative,backbench,4,2,2,0,0,0,0,0,0
+2026-05,P4,Conservative,opposition,3,1,3,0,0,0,0,0,0
+2026-05,P4,Green Party,opposition,1,1,0,0,0,0,0,0,0
+2026-05,P4,Independent,backbench,8,7,0,3,0,0,0,0,0
+2026-05,P4,Labour,backbench,26,23,3,2,0,0,0,0,0
+2026-05,P4,Labour,government,23,12,3,0,0,0,0,0,0
+2026-05,P4,Liberal Democrat,opposition,3,3,1,1,0,0,0,0,0
+2026-05,P4,Plaid Cymru,backbench,2,2,0,0,0,0,0,0,0
+2026-05,P4,Scottish National Party,opposition,1,1,0,0,0,0,0,0,0
+2026-06,P4,Conservative,backbench,7,4,3,0,0,0,0,0,0
+2026-06,P4,Conservative,opposition,1,1,0,0,0,0,0,0,0
+2026-06,P4,Democratic Unionist Party,backbench,1,0,1,0,0,0,0,0,0
+2026-06,P4,Green Party,opposition,2,2,0,0,0,0,0,0,0
+2026-06,P4,Independent,backbench,6,6,1,2,0,0,0,0,0
+2026-06,P4,Labour,backbench,46,44,1,2,0,0,0,0,0
+2026-06,P4,Labour,government,57,52,5,0,0,0,0,0,0
+2026-06,P4,Liberal Democrat,backbench,5,5,0,1,0,0,0,1,0
+2026-06,P4,Liberal Democrat,opposition,6,6,1,1,0,0,0,0,0
+2026-06,P4,Plaid Cymru,backbench,1,1,0,0,0,0,0,0,0
+2026-06,P4,Scottish National Party,opposition,2,2,0,0,0,0,0,0,0
+2026-06,P4,Your Party,backbench,1,1,0,0,0,0,0,0,0
+2026-07,P4,Conservative,backbench,9,8,2,0,0,1,0,0,0
+2026-07,P4,Conservative,opposition,7,3,3,0,2,0,2,0,0
+2026-07,P4,Democratic Unionist Party,backbench,1,1,1,0,0,0,0,0,0
+2026-07,P4,Green Party,opposition,5,4,0,0,0,0,0,0,0
+2026-07,P4,Independent,backbench,4,4,0,0,0,0,0,0,0
+2026-07,P4,Labour,backbench,78,77,2,5,0,1,0,0,0
+2026-07,P4,Labour,government,54,35,5,0,0,0,0,1,0
+2026-07,P4,Liberal Democrat,backbench,7,6,0,0,0,0,0,0,0
+2026-07,P4,Liberal Democrat,opposition,3,3,0,0,0,0,0,0,0
+2026-07,P4,Plaid Cymru,backbench,2,2,0,1,0,0,0,0,0
+2026-07,P4,Scottish National Party,opposition,6,6,0,1,0,2,0,0,0
+2026-07,P4,Your Party,backbench,4,4,0,3,0,0,0,0,0
+2026-09,P4,Conservative,backbench,1,1,0,0,0,0,0,0,0
+2026-09,P4,Green Party,opposition,1,1,0,0,0,0,0,0,0
+2026-09,P4,Labour,backbench,12,10,0,1,0,0,0,0,0
+2026-09,P4,Labour,government,15,11,0,0,0,0,0,0,0
+2026-09,P4,Liberal Democrat,backbench,2,1,0,0,0,0,0,0,0
+2026-09,P4,Liberal Democrat,opposition,2,2,0,0,0,0,0,0,0
+2026-09,P4,Scottish National Party,opposition,2,2,0,0,0,0,0,0,0
+2026-09,P4,Your Party,backbench,1,1,0,1,0,0,0,0,0
