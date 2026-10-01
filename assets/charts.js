@@ -83,7 +83,9 @@ const Charts = (() => {
         hit.classList.add("on");
       };
       hit.addEventListener("mouseenter", show);
-      hit.addEventListener("mouseleave", () => { tip.hidden = true; hit.classList.remove("on"); });
+      hit.addEventListener("click", show);   // a tap on a phone
+      // on a touch screen the tooltip stays until another month is tapped
+      hit.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") { tip.hidden = true; hit.classList.remove("on"); } });
       g.append(hit);
     });
     wrap.append(g, tip);
@@ -191,7 +193,7 @@ const Charts = (() => {
     g.append(cross);
     months.forEach((m, i) => {
       const hit = svg("rect", { class: "hit", x: L + i * bw, y: T, width: bw, height: ih });
-      hit.addEventListener("mouseenter", () => {
+      const showMonth = () => {
         const lines = [el("b", null, fmtMonth(m, true))];
         for (const s of series) {
           const v = s.values[i];
@@ -205,8 +207,10 @@ const Charts = (() => {
         tip.style.left = Math.min(Math.max(0, px + 10), box.width - 170) + "px";
         tip.style.top = "0px";
         cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i)); cross.setAttribute("visibility", "visible");
-      });
-      hit.addEventListener("mouseleave", () => { tip.hidden = true; cross.setAttribute("visibility", "hidden"); });
+      };
+      hit.addEventListener("mouseenter", showMonth);
+      hit.addEventListener("click", showMonth);   // a tap on a phone
+      hit.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") { tip.hidden = true; cross.setAttribute("visibility", "hidden"); } });
       g.append(hit);
     });
     wrap.append(g, tip);
@@ -235,8 +239,12 @@ const Charts = (() => {
     g.append(svg("text", { x: L + iw / 2, y: H - 4, "text-anchor": "middle" }, opts.xlabel));
     const wrap = el("div", { class: "chart-wrap wide" });
     const tip = el("div", { class: "tooltip", hidden: true });
+    const hits = svg("g");   // the larger hover areas sit underneath every dot
+    g.append(hits);
     for (const p of points) {
       const c = svg("circle", { class: "sc " + (opts.cls || ""), cx: x(p.x), cy: y(p.y), r: 4.2, tabindex: p.href ? 0 : null });
+      // a larger invisible circle around each dot, so it is easier to hover or tap
+      const big = svg("circle", { class: "schit", cx: x(p.x), cy: y(p.y), r: 9 });
       const show = () => {
         App.put(tip, ...p.tip.flatMap((t, k) => k ? [el("br"), t] : [k === 0 ? el("b", null, t) : t]));
         tip.hidden = false;
@@ -247,13 +255,13 @@ const Charts = (() => {
         c.classList.add("on");
       };
       const hide = () => { tip.hidden = true; c.classList.remove("on"); };
-      c.addEventListener("mouseenter", show); c.addEventListener("mouseleave", hide);
+      for (const t of [c, big]) { t.addEventListener("mouseenter", show); t.addEventListener("mouseleave", hide); }
       c.addEventListener("focus", show); c.addEventListener("blur", hide);
       if (p.href) {
-        c.addEventListener("click", () => { location.hash = p.href; });
+        for (const t of [c, big]) t.addEventListener("click", () => { location.hash = p.href; });
         c.addEventListener("keydown", e => { if (e.key === "Enter") location.hash = p.href; });
       }
-      g.append(c);
+      hits.append(big); g.append(c);
     }
     wrap.append(g, tip);
     return wrap;

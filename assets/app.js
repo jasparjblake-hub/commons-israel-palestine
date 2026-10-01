@@ -98,15 +98,9 @@ const App = (() => {
   const ROLE_SHORT = { government: "minister", opposition: "opposition frontbencher", backbench: "backbencher" };
 
   let META = null;
-  function accuracyLine(kind) {
-    const a = META && META.accuracy && META.accuracy[kind];
-    if (!a) return "";
-    if (kind === "rec") return "Automated coding. In blind hand-checks, " + pct(META.accuracy.recognition.precision) +
-      " of recorded recognition calls were confirmed, and " + pct(META.accuracy.recognition.recall) + " of real ones were caught.";
-    return "";
-  }
 
   // ---- router ----
+  const SITE = "The Commons on Israel and Palestine";
   const routes = {};
   function route(name, fn) { routes[name] = fn; }
   function parse() {
@@ -138,26 +132,13 @@ const App = (() => {
     }
     if (!r.keepScroll) window.scrollTo(0, 0);
     const h1 = main.querySelector("h1");
-    if (h1) { h1.setAttribute("tabindex", "-1"); h1.focus({ preventScroll: true }); document.title = h1.textContent + " · The Commons on Israel and Palestine"; }
+    if (h1) { h1.setAttribute("tabindex", "-1"); h1.focus({ preventScroll: true }); document.title = h1.textContent === SITE ? SITE : h1.textContent + " · " + SITE; }
   }
   window.addEventListener("hashchange", render);
 
   route("notfound", async () => el("div", { class: "stack" },
     el("h1", null, "Page not found"),
     el("p", null, el("a", { href: "#home" }, "Go to the home page"))));
-
-  function soon(title, what) {
-    return async () => el("div", { class: "stack" },
-      el("h1", null, title),
-      el("p", null, what),
-      el("p", { class: "muted" }, "This section is still being built."));
-  }
-  route("timeline", soon("Timeline", "How often MPs spoke on the subject each month, and how often each claim was made, by party and role."));
-  route("parties", soon("Party comparison", "Claims, recorded calls and Early Day Motion signatures for each party, split by role."));
-  route("seats", soon("Seats", "Compare a seat's demography and election figures with what its MP was recorded saying."));
-  route("findings", soon("Findings", "The main results of the analysis and the limits on each."));
-  route("method", soon("Method", "How the data was collected, coded and checked, including what went wrong along the way."));
-  route("downloads", soon("Downloads", "The data as CSV files under an open licence."));
 
   function start() {
     const y = document.getElementById("built");
@@ -168,6 +149,15 @@ const App = (() => {
       top.classList.toggle("open", open);
       mb.setAttribute("aria-expanded", String(open));
       mb.textContent = open ? "Close" : "Menu";
+    });
+    // The skip link moves keyboard focus to the page content. It must not change the
+    // address, because the address decides which page is shown.
+    const skip = document.querySelector("a.skip");
+    if (skip) skip.addEventListener("click", e => {
+      e.preventDefault();
+      const target = document.querySelector("#main h1") || document.getElementById("main");
+      target.setAttribute("tabindex", "-1");
+      target.focus();
     });
     window.addEventListener("hashchange", () => {
       if (top && top.classList.contains("open")) { top.classList.remove("open"); mb.setAttribute("aria-expanded", "false"); mb.textContent = "Menu"; }

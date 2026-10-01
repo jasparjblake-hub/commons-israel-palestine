@@ -1,4 +1,4 @@
-gss,name,nation,region,winner_party_2024,muslim_pc,jewish_pc,child_poverty_pc,majority_pc,ethnic_minority_pc,degree_pc,young_adult_pc,city,challenger,mp_2024_member_id,mp_2024_name,mp_2024_party
+﻿gss,name,nation,region,winner_party_2024,muslim_pc,jewish_pc,child_poverty_pc,majority_pc,ethnic_minority_pc,degree_pc,young_adult_pc,city,challenger,mp_2024_member_id,mp_2024_name,mp_2024_party
 W07000081,Aberafan Maesteg,Wales,Wales,Lab,0.811,0.017,30.204,28.958,3.105,23.707,24.51,False,,4359,Stephen Kinnock,Lab
 S14000060,Aberdeen North,Scotland,Scotland,SNP,2.889,0.046,13.974,4.181,12.391,31.865,28.784,True,0,4357,Kirsty Blackman,SNP
 S14000061,Aberdeen South,Scotland,Scotland,SNP,2.88,0.082,10.957,8.109,14.483,44.173,34.555,True,0,4735,Stephen Flynn,SNP

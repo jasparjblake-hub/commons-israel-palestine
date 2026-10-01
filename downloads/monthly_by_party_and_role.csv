@@ -1,4 +1,4 @@
-month,period,party,role,on_topic,claim1_asserted,claim2_asserted,arms_called,arms_opposed,rec_called,rec_opposed,cf_called,cf_opposed
+﻿month,period,party,role,on_topic,claim1_asserted,claim2_asserted,arms_called,arms_opposed,rec_called,rec_opposed,cf_called,cf_opposed
 2023-10,P1,Alba Party,backbench,1,1,1,0,0,0,0,1,0
 2023-10,P1,Alliance,backbench,1,1,1,0,0,0,0,0,0
 2023-10,P1,Conservative,backbench,119,29,91,0,0,0,0,2,0
